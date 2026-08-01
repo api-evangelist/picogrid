@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: generated
+source: https://docs.picogrid.com/reference
+api: Legion Platform API v3
+grounding: >-
+  Steps are grounded in real HTTP method+path from the public Legion reference
+  (docs.picogrid.com/reference). OpenAPI operationIds are not asserted because
+  the combined spec is not publicly retrievable.
+skills:
+- file: picogrid-ingest-and-search-feeds.md
+  name: Ingest and search Legion feed data
+  api: Legion Platform API v3
+  operations:
+  - POST /v3/feeds/messages
+  - POST /v3/feeds/search
+  - GET /v3/feeds/entities/{entityId}/latest
+- file: picogrid-dispatch-tasking-command.md
+  name: Dispatch a tasking command to an entity
+  api: Legion Platform API v3
+  operations:
+  - GET /v3/tasking/entity/{entityId}/commands
+  - POST /v3/tasking
+  - GET /v3/tasking/{taskId}
+- file: picogrid-subscribe-to-events.md
+  name: Subscribe to Legion events and receive notifications
+  api: Legion Platform API v3
+  operations:
+  - POST /v3/event-subscriptions
+  - POST /v3/event-subscriptions/channels
+  - POST /v3/events/search
+  - GET /v3/notifications

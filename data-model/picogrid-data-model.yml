@@ -1,0 +1,111 @@
+generated: '2026-07-20'
+method: derived
+source: https://docs.picogrid.com/reference (operation catalog / path structure)
+entities:
+- name: Organization
+  detail: Tenant boundary; nearly every resource is organization-scoped.
+- name: User
+  detail: A person; belongs to organizations with a role.
+- name: Entity
+  detail: A managed asset/system (sensor, platform, unmanned system).
+- name: EntityLocation
+  detail: A timestamped location for an Entity.
+- name: Track
+  detail: A tracked object/target.
+- name: TrackLocation
+  detail: A timestamped location for a Track.
+- name: FeedDefinition
+  detail: Schema/definition for a stream of feed data.
+- name: FeedData
+  detail: A message- or file-based feed data item (may carry Detections).
+- name: Detection
+  detail: A detection within a FeedData item; can receive Feedback.
+- name: Event
+  detail: A platform event.
+- name: EventSubscription
+  detail: A subscription that routes events to delivery channels.
+- name: EventSubscriptionChannel
+  detail: A delivery channel attached to an EventSubscription.
+- name: Notification
+  detail: A delivered event, with per-channel deliveries and per-user receipts.
+- name: VideoStream
+  detail: A video stream configuration associated with an Entity; has Recordings.
+- name: Task
+  detail: A dispatched command to an Entity over an MQTT topic.
+- name: Integration
+  detail: An OAuth client/integration registered by an organization.
+- name: PermissionTemplate
+  detail: A reusable set of fine-grained permissions.
+relationships:
+- from: User
+  to: Organization
+  type: belongs_to_many
+  via: organization membership
+- from: Entity
+  to: Organization
+  type: belongs_to
+- from: EntityLocation
+  to: Entity
+  type: belongs_to
+  via: entityId
+- from: Track
+  to: TrackLocation
+  type: has_many
+  via: trackId
+- from: FeedData
+  to: FeedDefinition
+  type: belongs_to
+  via: feedDefinitionId
+- from: FeedData
+  to: Entity
+  type: belongs_to
+  via: entityId
+- from: Detection
+  to: FeedData
+  type: belongs_to
+  via: feedId
+- from: Feedback
+  to: Detection
+  type: belongs_to
+  via: detectionEntityId
+- from: EventSubscriptionChannel
+  to: EventSubscription
+  type: belongs_to
+  via: eventSubscriptionId
+- from: EventSubscription
+  to: User
+  type: belongs_to
+  via: userId
+- from: NotificationDelivery
+  to: Notification
+  type: belongs_to
+  via: notificationId
+- from: NotificationDelivery
+  to: EventSubscriptionChannel
+  type: belongs_to
+  via: eventSubscriptionChannelId
+- from: NotificationReceipt
+  to: Notification
+  type: belongs_to
+  via: notificationId
+- from: NotificationReceipt
+  to: User
+  type: belongs_to
+  via: userId
+- from: VideoStream
+  to: Entity
+  type: belongs_to
+  via: entityId
+- from: Task
+  to: Entity
+  type: belongs_to
+  via: entityId (via registered command + MQTT topic)
+- from: Integration
+  to: Organization
+  type: belongs_to
+notes: >-
+  Entity graph derived from the Legion v3 path structure and operation
+  descriptions (docs.picogrid.com/reference). Foreign keys are inferred from
+  path parameters (entityId, feedDefinitionId, trackId, eventSubscriptionId,
+  notificationId, userId); field-level schemas were not retrievable because the
+  combined OpenAPI document is not publicly served.

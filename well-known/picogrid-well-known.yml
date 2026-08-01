@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: searched
+source: probed live hosts
+hosts:
+- host: https://legion-prod.picogrid.com
+  documents:
+  - path: /v3/.well-known/oauth-authorization-server   # RFC 8414 (proxied to Keycloak)
+    status: 200
+    file: picogrid-oauth-authorization-server.json
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://auth.legion-prod.picogrid.com/realms/legion
+  documents:
+  - path: /.well-known/openid-configuration           # OIDC discovery (Keycloak realm: legion)
+    status: 200
+    file: picogrid-openid-configuration.json
+- host: https://picogrid.com
+  documents:
+  - path: /.well-known/security.txt                    # RFC 9116
+    status: 200
+    file: picogrid-security.txt
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+notes: >-
+  The combined OpenAPI document is documented at GET /v3/openapi.json but returns
+  404 on the public commercial host (legion-prod.picogrid.com) without deployment
+  context; the US Government host (api.hopper.west.prod.govcloud.legion.picogrid.com)
+  is access-restricted. OAuth authorization-server metadata is proxied from the
+  Keycloak "legion" realm at /v3/.well-known/oauth-authorization-server.

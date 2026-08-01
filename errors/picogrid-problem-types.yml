@@ -1,0 +1,60 @@
+generated: '2026-07-20'
+method: searched
+source: probed https://legion-prod.picogrid.com/v3/openapi.json (observed error response)
+format: custom
+envelope:
+  content_type: application/json
+  fields:
+  - {name: status, type: string, example: error}
+  - {name: code, type: integer, description: HTTP status code, example: 404}
+  - {name: message, type: string, description: Human-readable error message}
+  - {name: category, type: string, description: Machine-readable error category, example: RESOURCE_NOT_FOUND}
+  - {name: timestamp, type: string, format: date-time}
+  - {name: trace_id, type: string, description: Correlation id for support/debugging}
+  observed_example: |
+    {"status":"error","code":404,"message":"The requested resource was not found.",
+     "category":"RESOURCE_NOT_FOUND","timestamp":"2026-07-21T01:06:01Z",
+     "trace_id":"2fcb19e6c3f677cfd7743731df72041f"}
+problems:
+- status: 400
+  category: BAD_REQUEST
+  title: Bad request
+  remediation: Validate the request body/parameters against the operation schema.
+- status: 401
+  category: UNAUTHORIZED
+  title: Unauthorized
+  remediation: Provide a valid OAuth 2.0 bearer access token from the Keycloak "legion" realm.
+- status: 403
+  category: FORBIDDEN
+  title: Forbidden
+  remediation: >-
+    The token is valid but lacks the required organization permission
+    (e.g. org:viewer/operator/admin) or scope for this resource.
+- status: 404
+  category: RESOURCE_NOT_FOUND
+  title: Resource not found
+  remediation: Verify the resource id and that it belongs to the active organization context.
+  observed: true
+- status: 409
+  category: CONFLICT
+  title: Conflict
+  remediation: Resolve the conflicting state before retrying.
+- status: 422
+  category: UNPROCESSABLE_ENTITY
+  title: Unprocessable entity
+  remediation: The payload was well-formed but failed validation (e.g. command schema mismatch on tasking).
+- status: 429
+  category: RATE_LIMITED
+  title: Too many requests
+  remediation: Back off and retry; respect any rate-limit signaling.
+- status: 500
+  category: INTERNAL_SERVER_ERROR
+  title: Internal server error
+  remediation: Retry; if it persists contact support with the trace_id.
+notes: >-
+  The envelope shape and the RESOURCE_NOT_FOUND category / 404 title were
+  observed directly from the live commercial host. The remaining status classes
+  are the conventional HTTP errors implied by the documented operations; their
+  exact category strings were not all verifiable without authenticated calls.
+  Errors are NOT RFC 9457 (application/problem+json) — they use a custom JSON
+  envelope carrying a trace_id.

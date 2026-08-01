@@ -1,8 +1,18 @@
 aid: picogrid
 name: Picogrid
-description: 'Picogrid is a company surfaced as a portfolio company of bessemer-venture-partners, initialized-capital
-  and added to the API Evangelist network as a stub for enrichment. Sector: data. This profile is a lead
-  awaiting the enrichment pipeline.'
+description: >-
+  Picogrid is an El Segundo, California defense and public-safety technology
+  company whose Legion platform is an API-first systems-integration layer that
+  unifies fragmented sensors, unmanned systems, and mission assets across land,
+  sea, air, and space into a single decision-ready picture. The Legion Platform
+  API (v3, OpenAPI 3.1, OAuth 2.0 via Keycloak) lets operators and AI agents not
+  only observe but command physical systems: registering entities, streaming and
+  searching feed data, dispatching tasking commands over MQTT, managing tracks,
+  video streams and WebRTC, fine-grained authorization, event subscriptions and
+  notifications, and cross-Legion federation. Applications include base security,
+  satellite operations, air defense, SIGINT interoperability, wildfire detection,
+  and human-machine teaming. Backed by Bessemer Venture Partners and Initialized
+  Capital.
 url: https://raw.githubusercontent.com/api-evangelist/picogrid/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,18 +21,146 @@ x-backed-by:
 - initialized-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1
+image: https://picogrid.com/
 tags:
 - Company
 - Data
-apis: []
+- Defense
+- Public Safety
+- Systems Integration
+- Sensors
+- Unmanned Systems
+- Command and Control
+- Geospatial
+- Situational Awareness
+- OAuth
+- Video Streaming
+apis:
+- name: Legion Platform API
+  description: >-
+    The Legion Platform HTTP API (v3, OpenAPI 3.1.0) for controlling and
+    integrating data from unmanned and mission systems: entities and entity
+    locations, feeds (message and file data) and feed definitions, tracks and
+    track locations, tasking (dispatch commands over MQTT) and command
+    registration, events and event subscriptions with delivery channels,
+    notifications, video streams and DVR recordings, WebRTC connections,
+    fine-grained authorization and permission templates, organizations and
+    users, integrations (OAuth clients), and cross-Legion federation. Secured
+    with OAuth 2.0 through a Keycloak "legion" realm.
+  humanURL: https://docs.picogrid.com/reference
+  baseURL: https://legion-prod.picogrid.com
+  version: '3.0.0'
+  tags:
+  - Legion
+  - Systems Integration
+  - Command and Control
+  properties:
+  - type: APIReference
+    url: https://docs.picogrid.com/reference
+  - type: GettingStarted
+    url: https://docs.picogrid.com/reference/start
+  - type: Authentication
+    url: authentication/picogrid-authentication.yml
+  - type: OAuthScopes
+    url: scopes/picogrid-scopes.yml
+  - type: ErrorCatalog
+    url: errors/picogrid-problem-types.yml
+  - type: Conventions
+    url: conventions/picogrid-conventions.yml
+  - type: DataModel
+    url: data-model/picogrid-data-model.yml
+  - type: Webhooks
+    url: asyncapi/picogrid-events-webhooks.yml
+  - type: MCPServer
+    url: mcp/picogrid-mcp.yml
+  - type: Conformance
+    url: conformance/picogrid-conformance.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/picogrid-domain-security.yml
 - type: Website
   url: https://picogrid.com/
+- type: DeveloperPortal
+  url: https://docs.picogrid.com/
+- type: Documentation
+  url: https://docs.picogrid.com/
+- type: APIReference
+  url: https://docs.picogrid.com/reference
+- type: GettingStarted
+  url: https://docs.picogrid.com/reference/start
+- type: StatusPage
+  url: https://status.picogrid.com/
+- type: ChangeLog
+  url: https://docs.picogrid.com/changelog
+- type: Blog
+  url: https://picogrid.com/newsroom
+- type: GitHubOrganization
+  url: https://github.com/picogrid
+- type: Support
+  url: mailto:support@picogrid.com
+- type: Product
+  url: https://picogrid.com/legion
+- type: Partners
+  url: https://picogrid.com/partners
+- type: SecurityTxt
+  url: well-known/picogrid-security.txt
+- type: WellKnown
+  url: well-known/picogrid-well-known.yml
+- type: Authentication
+  url: authentication/picogrid-authentication.yml
+- type: OAuthScopes
+  url: scopes/picogrid-scopes.yml
+- type: VulnerabilityDisclosure
+  url: security/picogrid-vulnerability-disclosure.yml
+- type: Security
+  url: https://picogrid.com/.well-known/security.txt
+- type: Lifecycle
+  url: lifecycle/picogrid-lifecycle.yml
+- type: ChangeLog
+  url: changelog/picogrid-changelog.yml
+  name: Legion changelog (structured)
+- type: ErrorCatalog
+  url: errors/picogrid-problem-types.yml
+- type: Conventions
+  url: conventions/picogrid-conventions.yml
+- type: DataModel
+  url: data-model/picogrid-data-model.yml
+- type: Webhooks
+  url: asyncapi/picogrid-events-webhooks.yml
+- type: MCPServer
+  url: mcp/picogrid-mcp.yml
+- type: Conformance
+  url: conformance/picogrid-conformance.yml
+- type: Packages
+  url: packages/picogrid-packages.yml
+- type: SDKs
+  url: packages/picogrid-packages.yml
+- type: LLMsTxt
+  url: llms/picogrid-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml

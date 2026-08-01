@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.picogrid.com/
+versioning:
+  scheme: uri-path
+  current: v3
+  api_version: '3.0.0'
+  maturity: beta
+  docs: https://docs.picogrid.com/reference/start
+  notes: >-
+    All Legion Platform API operations are served under a /v3 path prefix.
+    The v3 API is in beta testing (changelog: "Legion v3 In Beta Testing").
+status_page: https://status.picogrid.com/
+deprecation: {}
+sla: {}
+deprecated_operations: []
+notes: >-
+  No public deprecation/sunset policy (RFC 8594) or formal SLA/uptime target was
+  found. A public status page is operated at status.picogrid.com and a dated
+  changelog at docs.picogrid.com/changelog. Two production servers are published:
+  a commercial host (legion-prod.picogrid.com) and a US Government GovCloud host
+  (api.hopper.west.prod.govcloud.legion.picogrid.com).

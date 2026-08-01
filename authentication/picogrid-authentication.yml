@@ -1,0 +1,50 @@
+generated: '2026-07-20'
+method: searched
+source: https://legion-prod.picogrid.com/v3/.well-known/oauth-authorization-server
+docs: https://docs.picogrid.com/reference/start
+summary:
+  types: [oauth2, openIdConnect, mutualTLS]
+  api_key_in: []
+  oauth2_flows: [authorizationCode, clientCredentials, deviceCode, password, implicit]
+  identity_provider: Keycloak (realm "legion")
+  fine_grained_authorization: true
+schemes:
+- name: OAuth2
+  type: oauth2
+  provider: Keycloak
+  realm: legion
+  issuer: https://auth.legion-prod.picogrid.com/realms/legion
+  authorization_endpoint: https://auth.legion-prod.picogrid.com/realms/legion/protocol/openid-connect/auth
+  token_endpoint: https://auth.legion-prod.picogrid.com/realms/legion/protocol/openid-connect/token
+  jwks_uri: https://auth.legion-prod.picogrid.com/realms/legion/protocol/openid-connect/certs
+  registration_endpoint: https://auth.legion-prod.picogrid.com/realms/legion/clients-registrations/openid-connect
+  introspection_endpoint: https://auth.legion-prod.picogrid.com/realms/legion/protocol/openid-connect/token/introspect
+  revocation_endpoint: https://auth.legion-prod.picogrid.com/realms/legion/protocol/openid-connect/revoke
+  device_authorization_endpoint: https://auth.legion-prod.picogrid.com/realms/legion/protocol/openid-connect/auth/device
+  grant_types:
+  - authorization_code
+  - client_credentials
+  - refresh_token
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:ietf:params:oauth:grant-type:token-exchange
+  - urn:ietf:params:oauth:grant-type:uma-ticket
+  - implicit
+  - password
+  code_challenge_methods_supported: [S256, plain]
+  token_endpoint_auth_methods:
+  - private_key_jwt
+  - client_secret_basic
+  - client_secret_post
+  - tls_client_auth
+  - client_secret_jwt
+  sources: [well-known/picogrid-oauth-authorization-server.json]
+notes: >-
+  Machine-to-machine integrations authenticate with the OAuth 2.0 client
+  credentials grant against the Keycloak "legion" realm; interactive apps use
+  authorization_code with PKCE (S256). Token exchange (RFC 8693), device
+  authorization grant, and mTLS-bound access tokens (tls_client_auth) are
+  supported. Integration OAuth clients are provisioned via the /v3/integrations
+  endpoints (client id/secret issuance + regeneration) and token signatures are
+  verified against the JWKS. Legion applies fine-grained authorization on top of
+  OAuth (org-scoped permissions: org:viewer/operator/admin/system-admin,
+  permission templates, grant/revoke/check/expand/trace).

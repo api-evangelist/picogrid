@@ -1,0 +1,53 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.picogrid.com/reference
+authentication:
+  style: oauth2-bearer
+  detail: >-
+    OAuth 2.0 bearer tokens from the Keycloak "legion" realm; machine clients use
+    the client-credentials grant, interactive apps use authorization_code + PKCE.
+  ref: authentication/picogrid-authentication.yml
+organization_context:
+  required: true
+  detail: >-
+    Most resource operations are organization-scoped and require an active
+    organization context ("Requires organization context." / "Requires org:viewer"
+    appears throughout the reference). Fine-grained permissions (org:viewer,
+    org:operator, org:admin, system-admin) gate individual operations.
+pagination:
+  style: cursor-and-filter
+  detail: >-
+    List and search endpoints support "complex filtering and pagination".
+    Dedicated POST .../search operations (entities, events, event-subscriptions,
+    feeds, feed-definitions, tracks, track-locations, video) accept structured
+    filters plus pagination; video recordings use cursor pagination.
+idempotency:
+  supported: false
+  detail: >-
+    No documented idempotency-key header/parameter was found in the public
+    reference. Writes (create/update/delete) are the standard REST verbs.
+versioning:
+  style: uri-path
+  current: v3
+  ref: lifecycle/picogrid-lifecycle.yml
+error_envelope:
+  detail: >-
+    Custom JSON error envelope {status, code, message, category, timestamp,
+    trace_id} — not RFC 9457. See errors/picogrid-problem-types.yml.
+  ref: errors/picogrid-problem-types.yml
+request_tracing:
+  detail: Every error response carries a trace_id correlation identifier.
+messaging:
+  detail: >-
+    Tasking dispatches commands to entities over MQTT topics (register/update
+    MQTT topics per entity + command). Real-time media uses WebRTC connections
+    and MediaMTX-authenticated streaming; DVR recordings are served as HLS
+    (application/vnd.apple.mpegurl) and fMP4 segments.
+events:
+  detail: >-
+    Event subscriptions with delivery channels and notifications provide an
+    asynchronous event/webhook surface. See asyncapi/picogrid-events-webhooks.yml.
+notes: >-
+  Cross-cutting semantics harvested from the Legion API reference operation
+  descriptions. Content-negotiation includes application/json and, for the spec
+  endpoint, application/vnd.oai.openapi+json;version=3.1.

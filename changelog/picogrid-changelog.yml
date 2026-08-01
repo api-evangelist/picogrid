@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.picogrid.com/changelog
+scheme: dated-entries
+current_version: '3.0.0'
+entries:
+- title: Tracks
+  url: https://docs.picogrid.com/changelog/tracks
+  breaking: false
+  highlights: >-
+    Introduced the Tracks resource and track-locations (create/search tracks,
+    bulk locations, historical location search).
+- title: Fine Grained Authorization
+  url: https://docs.picogrid.com/changelog/fine-grained-authorization
+  breaking: false
+  highlights: >-
+    Added a fine-grained, resource-level authorization model: permission
+    check/grant/revoke/expand, permission templates, inheritance trees, and
+    audit trails under /v3/authorization.
+- title: Legion v3 In Beta Testing
+  url: https://docs.picogrid.com/changelog/legion-v3-in-beta-testing
+  breaking: true
+  highlights: >-
+    Legion v3 (OpenAPI 3.1) entered beta testing as the new platform API.
+- title: 'New API Endpoint: Retrieve Global Event Types'
+  url: https://docs.picogrid.com/changelog/new-api-endpoint-retrieve-global-event-types
+  breaking: false
+  highlights: Added an endpoint to retrieve global event types.
+- title: Download Video
+  url: https://docs.picogrid.com/changelog/download-video
+  breaking: false
+  highlights: >-
+    Added DVR video download/playlist endpoints (MP4 download, HLS VOD playlist,
+    recording segment retrieval).
+notes: >-
+  Entry titles and URLs harvested from the published changelog index
+  (docs.picogrid.com/changelog); exact publish dates are not exposed in the
+  changelog listing.

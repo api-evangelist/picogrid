@@ -1,0 +1,55 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.picogrid.com/reference
+spec_type: Webhooks
+summary: >-
+  Legion exposes an asynchronous event surface: clients create event
+  subscriptions, attach one or more delivery channels to each subscription, and
+  Legion emits notifications with per-channel deliveries and per-user receipts.
+  No standalone AsyncAPI document is published; this captures the webhook/event
+  catalog from the HTTP reference.
+management_operations:
+- op: Create event subscription
+  method: POST
+  path: /v3/event-subscriptions
+- op: Update event subscription
+  method: PUT
+  path: /v3/event-subscriptions/{eventSubscriptionId}
+- op: Delete event subscription
+  method: DELETE
+  path: /v3/event-subscriptions/{eventSubscriptionId}
+- op: Search event subscriptions
+  method: POST
+  path: /v3/event-subscriptions/search
+- op: Create event subscription channel
+  method: POST
+  path: /v3/event-subscriptions/channels
+- op: Get all channels for a subscription
+  method: GET
+  path: /v3/event-subscriptions/{eventSubscriptionId}/channels/all
+- op: List events
+  method: GET
+  path: /v3/events
+- op: Search events
+  method: POST
+  path: /v3/events/search
+delivery:
+- entity: Notification
+  detail: A delivered event; retrievable per organization and per user.
+  operations:
+  - GET /v3/notifications
+  - GET /v3/notifications/{notificationId}
+- entity: Notification delivery
+  detail: A notification delivery to a specific subscription channel.
+  operations:
+  - GET /v3/notifications/{notificationId}/channels/{eventSubscriptionChannelId}
+  - GET /v3/notifications/deliveries/{notificationDeliveryId}
+- entity: Notification receipt
+  detail: Per-user receipt/acknowledgement of a notification.
+  operations:
+  - GET /v3/notifications/{notificationId}/users/{userId}
+  - PUT /v3/notifications/{notificationId}/users/{userId}
+notes: >-
+  Real-time transport also includes MQTT (tasking command dispatch to entities)
+  and WebRTC (per-user media connection ids); those are command/streaming
+  channels rather than a subscribe-able event webhook surface.

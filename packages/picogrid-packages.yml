@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/picogrid
+packages:
+- language: go
+  registry: github
+  name: legion-system-auth
+  url: https://github.com/picogrid/legion-system-auth
+  install: go get github.com/picogrid/legion-system-auth
+  official: true
+  description: >-
+    First-party Go client library/tool to authenticate a system with Picogrid
+    Legion (OAuth 2.0 client-credentials against the Keycloak "legion" realm).
+- language: typescript
+  registry: github
+  name: legion-integration-samples
+  url: https://github.com/picogrid/legion-integration-samples
+  official: true
+  kind: samples
+  description: First-party TypeScript integration samples for the Legion Platform API.
+- language: go
+  registry: github
+  name: legion-simulations
+  url: https://github.com/picogrid/legion-simulations
+  official: true
+  kind: tooling
+  description: First-party Go simulation tooling for Legion.
+notes: >-
+  No packages for "picogrid"/"legion" were found on npm or PyPI. First-party
+  client code is distributed via the github.com/picogrid organization (12 public
+  repos). legion-system-auth is the client-side auth library; the others are
+  integration samples and simulation tooling.

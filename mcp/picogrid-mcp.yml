@@ -1,0 +1,83 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: https://docs.picogrid.com/reference (operation catalog)
+server:
+  name: picogrid-legion
+  transport: http
+  url: null
+summary: >-
+  Candidate MCP tool surface derived from the Legion Platform API v3 operations.
+  No official Picogrid-hosted MCP server was found; this is a proposed mapping of
+  marquee operations to tools an agent could call (grounded in real HTTP
+  method+path from docs.picogrid.com/reference). operationIds are not asserted
+  because the combined OpenAPI is not publicly retrievable.
+tools:
+- name: search_entities
+  description: Search entities with complex filtering and pagination.
+  method: POST
+  path: /v3/entities/search
+- name: get_entity
+  description: Retrieve a specific entity by id.
+  method: GET
+  path: /v3/entities/{entityId}
+- name: create_entity
+  description: Create a new entity.
+  method: POST
+  path: /v3/entities
+- name: get_entity_locations
+  description: Retrieve paginated locations for an entity.
+  method: GET
+  path: /v3/entities/{entityId}/locations
+- name: search_feed_data
+  description: Search feed data with complex filtering and pagination.
+  method: POST
+  path: /v3/feeds/search
+- name: get_latest_feed_data_for_entity
+  description: Retrieve the latest feed data for an entity across all feed definitions.
+  method: GET
+  path: /v3/feeds/entities/{entityId}/latest
+- name: ingest_message_feed_data
+  description: Ingest new message-based feed data.
+  method: POST
+  path: /v3/feeds/messages
+- name: search_events
+  description: Search events with complex filtering and pagination.
+  method: POST
+  path: /v3/events/search
+- name: create_event_subscription
+  description: Create a new event subscription.
+  method: POST
+  path: /v3/event-subscriptions
+- name: search_tracks
+  description: Search tracks with complex filtering and pagination.
+  method: POST
+  path: /v3/tracks/search
+- name: get_track_locations
+  description: Get historical locations for a track.
+  method: GET
+  path: /v3/tracks/{trackId}/locations
+- name: dispatch_task
+  description: Dispatch a command to an entity over its registered MQTT topic.
+  method: POST
+  path: /v3/tasking
+- name: get_task_status
+  description: Look up the current status of a dispatched task.
+  method: GET
+  path: /v3/tasking/{taskId}
+- name: get_entity_commands
+  description: Fetch all commands registered for an entity.
+  method: GET
+  path: /v3/tasking/entity/{entityId}/commands
+- name: search_video_streams
+  description: Search for video streams within an organization.
+  method: POST
+  path: /v3/video/search
+- name: check_permission
+  description: Check whether a subject has a specific permission on a resource.
+  method: POST
+  path: /v3/authorization/permissions/check
+notes: >-
+  Safety note for agent use: /v3/tasking dispatches real-world commands to
+  physical entities — treat as a high-consequence (acting) operation requiring
+  human-in-the-loop confirmation and short-lived, least-privilege tokens.

@@ -1,0 +1,164 @@
+# Legion Documentation
+
+> Legion is a systems integration platform.
+
+## API Reference
+- [Getting Started with Legion](https://docs.picogrid.com/reference/start.md): Welcome to Legion!
+- [Get OAuth 2.0 Authorization Server Metadata](https://docs.picogrid.com/reference/get_v3-well-known-oauth-authorization-server-2.md): Returns OAuth 2.0 authorization server metadata as defined in RFC 8414 by proxying to Keycloak's well-known endpoint
+- [Register with Keycloak](https://docs.picogrid.com/reference/post_v3-auth-providers-keycloak-register-2.md): Registers a new user account using Keycloak authentication provider
+- [MediaMTX Authentication](https://docs.picogrid.com/reference/post_v3-authorization-auth-mediamtx-2.md): Authenticates MediaMTX streaming requests using JWT tokens
+- [Get permission audit trail](https://docs.picogrid.com/reference/get_v3-authorization-permissions-audit-2.md): Get the permission audit trail with optional filtering. Requires organization context.
+- [Check permission](https://docs.picogrid.com/reference/post_v3-authorization-permissions-check-2.md): Check if a subject has a specific permission. Requires organization context.
+- [Check multiple permissions](https://docs.picogrid.com/reference/post_v3-authorization-permissions-check-bulk-2.md): Check multiple permissions in a single operation. Requires organization context.
+- [Expand permissions](https://docs.picogrid.com/reference/post_v3-authorization-permissions-expand-2.md): Find all subjects that have access to a resource. Requires organization context.
+- [Grant permissions](https://docs.picogrid.com/reference/post_v3-authorization-permissions-grant-2.md): Grant permissions to one or more subjects. Requires organization context.
+- [Trace permission path](https://docs.picogrid.com/reference/post_v3-authorization-permissions-path-2.md): Trace how a subject acquired a specific permission. Requires organization context.
+- [Revoke permissions](https://docs.picogrid.com/reference/post_v3-authorization-permissions-revoke-2.md): Revoke permissions from one or more subjects. Requires organization context.
+- [List subjects with permissions](https://docs.picogrid.com/reference/post_v3-authorization-permissions-subjects-2.md): Find all subjects that have a specific permission on a resource. Requires organization context.
+- [List permission templates](https://docs.picogrid.com/reference/get_v3-authorization-permissions-templates-2.md): List all permission templates for the organization. Requires organization context.
+- [Create permission template](https://docs.picogrid.com/reference/post_v3-authorization-permissions-templates-2.md): Create a new permission template. Requires organization context.
+- [Get permission template](https://docs.picogrid.com/reference/get_v3-authorization-permissions-templates-templateid-2.md): Get a specific permission template by ID. Requires organization context.
+- [Get permission inheritance tree](https://docs.picogrid.com/reference/post_v3-authorization-permissions-tree-2.md): Visualize the inheritance tree for a resource permission. Requires organization context.
+- [Get user permissions](https://docs.picogrid.com/reference/get_v3-authorization-users-userid-permissions-2.md): Get all permissions for a specific user. Requires organization context.
+- [Create entity](https://docs.picogrid.com/reference/post_v3-entities-2.md): Creates a new entity.
+- [Delete entity](https://docs.picogrid.com/reference/delete_v3-entities-entityid-2.md): Deletes an entity and their associated data.
+- [Get entity by ID](https://docs.picogrid.com/reference/get_v3-entities-entityid-2.md): Retrieves a specific entity by their ID.
+- [Update entity](https://docs.picogrid.com/reference/put_v3-entities-entityid-2.md): Updates an entity's information.
+- [Search entities](https://docs.picogrid.com/reference/post_v3-entities-search-2.md): Search entities with complex filtering and pagination
+- [Get paginated entity locations by entity ID](https://docs.picogrid.com/reference/get_v3-entities-entityid-locations-2.md): Retrieves all entity locations that belong to the specific entity ID.
+- [Create entity location](https://docs.picogrid.com/reference/post_v3-entities-entityid-locations-2.md)
+- [Get entity location that belongs to the entity by ID](https://docs.picogrid.com/reference/get_v3-entities-entityid-locations-entitylocationid-2.md): Retrieves a specific entity location that belongs to an entity by their ID.
+- [Search entity locations](https://docs.picogrid.com/reference/post_v3-entities-locations-search-2.md): Search entity locations with complex filtering and pagination
+- [Create event subscription](https://docs.picogrid.com/reference/post_v3-event-subscriptions-2.md): Creates a new event subscription.
+- [Delete event subscription](https://docs.picogrid.com/reference/delete_v3-event-subscriptions-eventsubscriptionid-2.md): Deletes an event subscription and its associated data.
+- [Get event subscription by ID](https://docs.picogrid.com/reference/get_v3-event-subscriptions-eventsubscriptionid-2.md): Retrieves a specific subscription by their ID.
+- [Update event subscription](https://docs.picogrid.com/reference/put_v3-event-subscriptions-eventsubscriptionid-2.md): Updates an event subscription's information.
+- [Get all event subscription channels for an event subscription](https://docs.picogrid.com/reference/get_v3-event-subscriptions-eventsubscriptionid-channels-all-2.md): Retrieves all subscription channels that belong to an event subscription.
+- [Create event subscription channel](https://docs.picogrid.com/reference/post_v3-event-subscriptions-channels-2.md): Creates a new event subscription channel.
+- [Delete event subscription channel](https://docs.picogrid.com/reference/delete_v3-event-subscriptions-channels-eventsubscriptionchannelid-2.md): Deletes an event subscription channel and its associated data.
+- [Get event subscription channel by ID](https://docs.picogrid.com/reference/get_v3-event-subscriptions-channels-eventsubscriptionchannelid-2.md): Retrieves a specific subscription channel by their ID.
+- [Update event subscription channel](https://docs.picogrid.com/reference/put_v3-event-subscriptions-channels-eventsubscriptionchannelid-2.md): Updates an event subscription channel's information.
+- [Search event subscriptions](https://docs.picogrid.com/reference/post_v3-event-subscriptions-search-2.md): Search event subscriptions with complex filtering and pagination
+- [Get event subscriptions for a user](https://docs.picogrid.com/reference/get_v3-event-subscriptions-users-userid-2.md): Retrieves a user's subscriptions.
+- [Get all events](https://docs.picogrid.com/reference/get_v3-events-2.md): Retrieves all events with pagination and filtering options.
+- [Get event by ID](https://docs.picogrid.com/reference/get_v3-events-eventid-2.md): Retrieves a specific event by their ID.
+- [Search events](https://docs.picogrid.com/reference/post_v3-events-search-2.md): Search events with complex filtering and pagination
+- [List the active roster for the current org](https://docs.picogrid.com/reference/get_v3-federation.md): Returns the federation peer roster for the active organization. Requires org:viewer.
+- [Get a Legion by ID](https://docs.picogrid.com/reference/get_v3-federation-id.md): Returns the Legion's roster entry (hostname, overlay IP, status, active cert metadata). Requires org:viewer on the Legion's owning org.
+- [Renew a Legion's certificate](https://docs.picogrid.com/reference/post_v3-federation-id-renew.md): Issues a fresh Nebula certificate for an existing Legion. The Legion's owning org is resolved from the path parameter. Requires org:operator on that org.
+- [Revoke a Legion](https://docs.picogrid.com/reference/post_v3-federation-id-revoke.md): Marks a Legion revoked, revokes its certs, and emits a roster event. Requires org:admin and a non-integration token.
+- [List the federation roster across all orgs](https://docs.picogrid.com/reference/get_v3-federation-all.md): Returns the federation peer roster across all organizations. Optional status and org-id filters. Requires system admin.
+- [Enroll a Legion](https://docs.picogrid.com/reference/post_v3-federation-enroll.md): Enrolls a new Legion (field or cloud) into the federation overlay. Returns the issued certs, lighthouse list, and an initial peer roster. Requires org:operator.
+- [Get the CA bundle for an org](https://docs.picogrid.com/reference/get_v3-orgs-organization-id-ca-bundle.md): Returns the trusted CA certificate(s) the federation overlay uses to anchor Legion identity for the given org. Requires org:viewer.
+- [Get feed data by item ID](https://docs.picogrid.com/reference/get_v3-feeds-data-feedid-1.md): Retrieves a specific feed data item by its unique stable ID
+- [Get latest feed data by entity and feed name](https://docs.picogrid.com/reference/get_v3-feeds-entities-entityid-feedname-data-latest-1.md): Retrieves the latest feed data for a specific entity using a human-readable feed name instead of a feed definition UUID
+- [Get latest feed data by entity and feed definition](https://docs.picogrid.com/reference/get_v3-feeds-entities-entityid-definitions-feeddefinitionid-data-latest-2.md): Retrieves the latest feed data for a specific entity and feed definition
+- [Get latest feed data for entity](https://docs.picogrid.com/reference/get_v3-feeds-entities-entityid-latest-2.md): Retrieves the latest feed data for a specific entity across all feed definitions
+- [Upload feed file data](https://docs.picogrid.com/reference/post_v3-feeds-files-2.md): Upload file-based feed data using multipart/form-data. The request should contain a 'metadata_json_payload' field with JSON metadata matching the IngestFeedFileDataRequest schema, and a 'file' field with the binary file content. Note: This endpoint uses multipart/form-data, not application/json as shown in the schema below.
+- [Download feed file data](https://docs.picogrid.com/reference/get_v3-feeds-files-download-2.md): Download file content by blob key. Returns the binary file content with appropriate headers.
+- [Ingest message feed data](https://docs.picogrid.com/reference/post_v3-feeds-messages-2.md): Ingest new message-based feed data into the system
+- [Search feed data](https://docs.picogrid.com/reference/post_v3-feeds-search-2.md): Search feed data with complex filtering and pagination
+- [Get feedback for a detection on a feed data entry](https://docs.picogrid.com/reference/get_v3-feeds-data-feedid-detections-detectionentityid-feedback.md): Returns paginated feedback entries for a specific detection within a feed data item
+- [Submit feedback for a detection on a feed data entry](https://docs.picogrid.com/reference/post_v3-feeds-data-feedid-detections-detectionentityid-feedback.md): Submits structured feedback for a specific detection within a feed data item
+- [Delete feedback for a detection on a feed data entry](https://docs.picogrid.com/reference/delete_v3-feeds-data-feedid-detections-detectionentityid-feedback-feedbackid.md): Soft-deletes feedback for a specific detection. Users may only delete feedback they submitted.
+- [Create feed definition](https://docs.picogrid.com/reference/post_v3-feeds-definitions-2.md): Creates a new feed definition
+- [Delete feed definition](https://docs.picogrid.com/reference/delete_v3-feeds-definitions-feeddefinitionid-2.md): Deletes an existing feed definition
+- [Get feed definition by ID](https://docs.picogrid.com/reference/get_v3-feeds-definitions-feeddefinitionid-2.md): Retrieves a specific feed definition by its ID
+- [Update feed definition](https://docs.picogrid.com/reference/put_v3-feeds-definitions-feeddefinitionid-2.md): Updates an existing feed definition
+- [Search feed definitions](https://docs.picogrid.com/reference/post_v3-feeds-definitions-search-2.md): Search feed definitions with filtering and pagination
+- [List integrations by organization](https://docs.picogrid.com/reference/get_v3-integrations-2.md): Get a list of integrations for the authenticated organization
+- [Create integration](https://docs.picogrid.com/reference/post_v3-integrations-2.md): Create a new integration from a manifest
+- [Delete integration](https://docs.picogrid.com/reference/delete_v3-integrations-integration-id-2.md): Delete an integration and all associated data
+- [Get integration](https://docs.picogrid.com/reference/get_v3-integrations-integration-id-2.md): Get details of a specific integration
+- [Update integration](https://docs.picogrid.com/reference/put_v3-integrations-integration-id-2.md): Update an existing integration from a manifest
+- [Get JSON Web Key Set](https://docs.picogrid.com/reference/get_v3-integrations-well-known-jwks-json-1.md): Returns the JSON Web Key Set containing public keys used to sign OAuth tokens. Use this to verify token signatures.
+- [Get OAuth configuration](https://docs.picogrid.com/reference/get_v3-integrations-integration-id-oauth-2.md): Get OAuth configuration for an integration
+- [Get OAuth client secret](https://docs.picogrid.com/reference/get_v3-integrations-integration-id-oauth-secret-2.md): Get OAuth client secret for an integration
+- [Regenerate OAuth client secret](https://docs.picogrid.com/reference/post_v3-integrations-integration-id-oauth-secret-regenerate-2.md): Regenerate OAuth client secret for an integration
+- [OAuth authorization endpoint](https://docs.picogrid.com/reference/get_v3-integrations-oauth-authorize-2.md): OAuth 2.0 authorization endpoint for integrations
+- [OAuth authorization callback](https://docs.picogrid.com/reference/get_v3-integrations-oauth-callback-2.md): Handle OAuth authorization callback from OAuth provider
+- [OAuth token revocation](https://docs.picogrid.com/reference/post_v3-integrations-oauth-revoke-2.md): Revoke an OAuth token
+- [OAuth token endpoint](https://docs.picogrid.com/reference/post_v3-integrations-oauth-token-2.md): Exchange authorization code or refresh token for access token
+- [OAuth token introspection](https://docs.picogrid.com/reference/get_v3-integrations-oauth-tokeninfo-2.md): Introspect OAuth token to get information about it
+- [Get current user](https://docs.picogrid.com/reference/get_v3-me-2.md): Get the authenticated user's profile information.
+- [Update current user](https://docs.picogrid.com/reference/patch_v3-me-2.md): Update the authenticated user's profile information.
+- [Get my organization invitations](https://docs.picogrid.com/reference/get_v3-me-organization-invites-2.md): Get all pending organization invitations for the authenticated user.
+- [Get my organizations](https://docs.picogrid.com/reference/get_v3-me-orgs-2.md): Get a paginated list of organizations the authenticated user belongs to.
+- [Delete all WebRTC connections](https://docs.picogrid.com/reference/delete_v3-me-webrtc-connections-2.md): Delete all WebRTC websocket connection IDs for the currently authenticated user.
+- [Get all WebRTC connections](https://docs.picogrid.com/reference/get_v3-me-webrtc-connections-2.md): Get all WebRTC websocket connection IDs for the currently authenticated user.
+- [Create WebRTC connection](https://docs.picogrid.com/reference/post_v3-me-webrtc-connections-2.md): Create a new WebRTC websocket connection ID for the currently authenticated user.
+- [Delete WebRTC connection](https://docs.picogrid.com/reference/delete_v3-me-webrtc-connections-sessionid-2.md): Delete a specific WebRTC websocket connection ID for the currently authenticated user.
+- [Get WebRTC connection](https://docs.picogrid.com/reference/get_v3-me-webrtc-connections-sessionid-2.md): Get a specific WebRTC websocket connection ID for the currently authenticated user.
+- [Get all notifications for an organization](https://docs.picogrid.com/reference/get_v3-notifications-2.md): Retrieves all notifications of an organization.
+- [Get notification by ID](https://docs.picogrid.com/reference/get_v3-notifications-notificationid-2.md): Retrieves a specific notification by their ID.
+- [Get notification delivery by notfication ID and channel ID](https://docs.picogrid.com/reference/get_v3-notifications-notificationid-channels-eventsubscriptionchannelid-2.md): Retrieves a specific notification delivery by their notification ID and channel ID.
+- [Get notification receipt by notification ID and user ID](https://docs.picogrid.com/reference/get_v3-notifications-notificationid-users-userid-2.md): Retrieves a specific notification receipt by notification ID and user ID.
+- [Update notification receipt](https://docs.picogrid.com/reference/put_v3-notifications-notificationid-users-userid-2.md): Updates a notification receipt's information.
+- [Get notification delivery by ID](https://docs.picogrid.com/reference/get_v3-notifications-deliveries-notificationdeliveryid-2.md): Retrieves a specific notification delivery by their ID.
+- [Get notification receipt by ID](https://docs.picogrid.com/reference/get_v3-notifications-receipts-notificationreceiptid-2.md): Retrieves a specific notification receipt by their ID.
+- [Get notification for a user](https://docs.picogrid.com/reference/get_v3-notifications-users-userid-2.md): Retrieves a user's notification within the current organization.
+- [Get combined OpenAPI specification](https://docs.picogrid.com/reference/getv3openapijson.md): Returns the combined OpenAPI document for the Legion platform HTTP API, including this operation. The live document may list only the deployed server URL.
+- [Accept organization invitation](https://docs.picogrid.com/reference/post_v3-organization-invites-accept-2.md): Accept an invitation to join an organization using the token received via email.
+- [Decline organization invitation](https://docs.picogrid.com/reference/post_v3-organization-invites-decline-2.md): Decline an invitation to join an organization using the token received via email.
+- [Create organization invitation](https://docs.picogrid.com/reference/post_v3-organizations-invites-2.md): Send an invitation to a user to join the current organization. Requires organization ID in context and org:admin permission.
+- [Delete organization invitation](https://docs.picogrid.com/reference/delete_v3-organizations-invites-inviteid-2.md): Cancel a pending organization invitation. Requires organization ID in context and org:admin permission.
+- [Get organization invitation](https://docs.picogrid.com/reference/get_v3-organizations-invites-inviteid-2.md): Get details of a specific organization invitation. Requires organization ID in context and org:viewer permission.
+- [Delete organization](https://docs.picogrid.com/reference/delete_v3-organizations-2.md): Delete an organization and all associated data. Requires system admin permission only.
+- [Get organization](https://docs.picogrid.com/reference/get_v3-organizations-2.md): Get the current organization details. Requires org:viewer permission or system admin.
+- [Update organization](https://docs.picogrid.com/reference/patch_v3-organizations-2.md): Update the current organization properties. Requires org:admin permission or system admin.
+- [Create organization](https://docs.picogrid.com/reference/post_v3-organizations-2.md): Create a new organization. Requires system admin permission.
+- [Get all organizations](https://docs.picogrid.com/reference/get_v3-organizations-all-2.md): Get a paginated list of all organizations. Requires system admin permission.
+- [Get all organization users](https://docs.picogrid.com/reference/get_v3-organizations-users-2.md): Get a paginated list of users in the current organization. Requires organization ID in context and org:viewer permission.
+- [Delete organization user](https://docs.picogrid.com/reference/delete_v3-organizations-users-userid-2.md): Remove a user from the current organization. Requires organization ID in context and org:admin permission.
+- [Get organization user](https://docs.picogrid.com/reference/get_v3-organizations-users-userid-2.md): Get a specific user's membership details in the current organization. Requires organization ID in context and org:viewer permission.
+- [Update organization user](https://docs.picogrid.com/reference/put_v3-organizations-users-userid-2.md): Update a user's role within the current organization. Requires organization ID in context and org:admin permission.
+- [Get a specific organization's orion settings](https://docs.picogrid.com/reference/get_v3-orion-settings-2.md): Retrieves the orion settings for a specific organization
+- [Creates or Updates a specific organization's orion settings](https://docs.picogrid.com/reference/put_v3-orion-settings-2.md): Updates the orion settings for a specific organization. If the settings do not exist, they will be created.
+- [Dispatch task](https://docs.picogrid.com/reference/post_v3-tasking-2.md): Dispatches a task to the specified entity using the specified MQTT topic and payload. The command must have been registered in the system and the payload must match the schema for that command.
+- [Get task status](https://docs.picogrid.com/reference/get_v3-tasking-taskid-2.md): Looks up the current status of the task using the task ID.
+- [Delete entity commands](https://docs.picogrid.com/reference/delete_v3-tasking-entity-entityid-commands-2.md): Deletes commands for the specified entity ID, by setting the commands field of the CommandsRegistration entry to an empty map. Note that this does not delete the CommandsRegistration entry itself, but only clears the commands field.
+- [Get entity commands](https://docs.picogrid.com/reference/get_v3-tasking-entity-entityid-commands-2.md): Fetches all commands registered for the specified entity ID.
+- [Register entity commands](https://docs.picogrid.com/reference/post_v3-tasking-entity-entityid-commands-2.md): Registers commands for the specified entity. Merges with existing commands if they exist.
+- [Update entity commands](https://docs.picogrid.com/reference/put_v3-tasking-entity-entityid-commands-2.md): Updates commands for the specified entity ID.
+- [Delete MQTT topic](https://docs.picogrid.com/reference/delete_v3-tasking-entity-entityid-mqtt-topic-2.md): Deletes MQTT topics for the specified entity ID and command name.
+- [Register MQTT topics](https://docs.picogrid.com/reference/post_v3-tasking-entity-entityid-mqtt-topic-2.md): Registers MQTT topics for the specified entity ID.
+- [Update MQTT topic](https://docs.picogrid.com/reference/put_v3-tasking-entity-entityid-mqtt-topic-2.md): Updates MQTT topics for the specified entity ID and command name.
+- [Get MQTT topics](https://docs.picogrid.com/reference/get_v3-tasking-entity-entityid-mqtt-topics-2.md): Fetches the MQTT topics registered for the specified entity ID and command name.
+- [Get all MQTT topics](https://docs.picogrid.com/reference/get_v3-tasking-entity-entityid-mqtt-topics-all-2.md): Fetches all MQTT topics registered for the specified entity ID.
+- [Create track](https://docs.picogrid.com/reference/post_v3-tracks-2.md): Creates a new track
+- [Delete track](https://docs.picogrid.com/reference/delete_v3-tracks-trackid-2.md): Deletes a track and associated data
+- [Get track by ID](https://docs.picogrid.com/reference/get_v3-tracks-trackid-2.md): Retrieves a specific track by ID
+- [Update track](https://docs.picogrid.com/reference/put_v3-tracks-trackid-2.md): Updates a track's information
+- [Search tracks](https://docs.picogrid.com/reference/post_v3-tracks-search-2.md): Search tracks with complex filtering and pagination
+- [Get track locations](https://docs.picogrid.com/reference/get_v3-tracks-trackid-locations-2.md): Get historical locations for a track
+- [Create bulk locations](https://docs.picogrid.com/reference/post_v3-tracks-trackid-locations-2.md): Create or update multiple locations for a track
+- [Get track location](https://docs.picogrid.com/reference/get_v3-tracks-trackid-locations-tracklocationid-2.md): Get a specific location for a track
+- [Search track locations](https://docs.picogrid.com/reference/post_v3-tracks-locations-search-2.md): Search locations with complex filtering and pagination
+- [Get all users](https://docs.picogrid.com/reference/get_v3-users-2.md): Get a paginated list of all users. Requires system admin permission.
+- [Create admin user](https://docs.picogrid.com/reference/post_v3-users-2.md): Create a new user. Requires org:admin permission (permission-first with scope fallback).
+- [Delete user](https://docs.picogrid.com/reference/delete_v3-users-userid-2.md): Delete a user and their data. Requires system admin permission. Self-deletion is not permitted.
+- [Get user by ID](https://docs.picogrid.com/reference/get_v3-users-userid-2.md): Get a specific user by their ID. Requires system admin permissions.
+- [Update user](https://docs.picogrid.com/reference/put_v3-users-userid-2.md): Update user info. Requires system admin permission or self-modification (users can update their own profile).
+- [Revoke system admin permission](https://docs.picogrid.com/reference/delete_v3-users-userid-system-admin.md): Revoke system admin permission from a user. Requires the requesting user to be a system admin. Self-revocation is not permitted.
+- [Grant system admin permission](https://docs.picogrid.com/reference/post_v3-users-userid-system-admin.md): Grant system admin permission to a user. Requires the requesting user to already be a system admin.
+- [Create video stream](https://docs.picogrid.com/reference/post_v3-video-2.md): Creates a new video stream associated with an entity
+- [Delete all video streams for entity](https://docs.picogrid.com/reference/delete_v3-video-entityid-2.md): Deletes all video stream configurations associated with a specific entity
+- [Get video streams for entity](https://docs.picogrid.com/reference/get_v3-video-entityid-2.md): Retrieves all video stream configurations associated with a specific entity
+- [Delete specific video stream](https://docs.picogrid.com/reference/delete_v3-video-entityid-streamid-2.md): Deletes a specific video stream configuration by its ID
+- [Get specific video stream](https://docs.picogrid.com/reference/get_v3-video-entityid-streamid-2.md): Retrieves a specific video stream configuration by its ID
+- [Search video streams](https://docs.picogrid.com/reference/post_v3-video-search-2.md): Search for video streams within an organization using various filters
+- [Download recordings](https://docs.picogrid.com/reference/post_v3-video-entityid-streamid-recordings-download.md): Streams a single MP4 file (Content-Disposition: attachment) covering the requested time range by concatenating the overlapping recording segments
+- [Get recordings HLS playlist](https://docs.picogrid.com/reference/get_v3-video-entityid-streamid-recordings-playlist-m3u8.md): Returns an HLS VOD playlist (application/vnd.apple.mpegurl) covering the recordings that overlap the optional start/end window
+- [Search recordings](https://docs.picogrid.com/reference/post_v3-video-entityid-streamid-recordings-search.md): Search DVR recordings of a video stream with an optional time window and cursor pagination
+- [Get recording segment](https://docs.picogrid.com/reference/get_v3-video-entityid-streamid-recordings-segments-recordingid.md): Streams the bytes of a single fMP4 recording segment identified by its opaque recording ID
+- [Get recording segment init section](https://docs.picogrid.com/reference/get_v3-video-entityid-streamid-recordings-segments-recordingid-init.md): Returns just the ftyp+moov initialization bytes of a recording segment; HLS playlists reference this as each segment's EXT-X-MAP URI
+- [Getting started with Orion](https://docs.picogrid.com/reference/getting-started-with-orion.md)
+- [Managing users](https://docs.picogrid.com/reference/managing-users.md)
+- [Admin Guide](https://docs.picogrid.com/reference/admins-guide.md): User accounts are managed within Orion, which serves as the user interface for the Legion API.
+
+## Changelog
+- [Tracks](https://docs.picogrid.com/changelog/tracks.md)
+- [Fine Grained Authorization](https://docs.picogrid.com/changelog/fine-grained-authorization.md)
+- [Legion v3 In Beta Testing](https://docs.picogrid.com/changelog/legion-v3-in-beta-testing.md)
+- [New API Endpoint: Retrieve Global Event Types](https://docs.picogrid.com/changelog/new-api-endpoint-retrieve-global-event-types.md)
+- [Download Video](https://docs.picogrid.com/changelog/download-video.md)

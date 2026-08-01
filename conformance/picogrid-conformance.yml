@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: searched
+source: https://legion-prod.picogrid.com/v3/.well-known/oauth-authorization-server
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 authorization server (Keycloak realm "legion"); RFC 6749 flows.
+- id: oidc
+  conforms: true
+  evidence: OpenID Connect discovery document published (openid-configuration).
+- id: rfc8414-oauth-metadata
+  conforms: true
+  evidence: /v3/.well-known/oauth-authorization-server returns RFC 8414 metadata.
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256.
+- id: rfc8693-token-exchange
+  conforms: true
+  evidence: grant_types_supported includes urn:ietf:params:oauth:grant-type:token-exchange.
+- id: rfc8628-device-grant
+  conforms: true
+  evidence: device_authorization_endpoint present; device_code grant supported.
+- id: mtls-bound-tokens
+  conforms: true
+  evidence: token_endpoint_auth_methods_supported includes tls_client_auth.
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: picogrid.com/.well-known/security.txt published.
+- id: openapi-3.1
+  conforms: true
+  evidence: Legion Platform API declares OpenAPI 3.1.0.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom JSON envelope (status/code/category/trace_id), not application/problem+json.
+- id: asyncapi
+  conforms: false
+  evidence: No published AsyncAPI document; event surface documented as webhooks/notifications.
+notes: >-
+  Standards conformance derived from the live OAuth authorization-server
+  metadata and the published API/docs. No formal compliance certifications
+  (SOC 2, ISO 27001, FedRAMP, etc.) were found published on a public trust page,
+  so no `Compliance` pointer is asserted (a US Government GovCloud production
+  host exists, implying government-cloud deployment, but named certifications are
+  not publicly documented).

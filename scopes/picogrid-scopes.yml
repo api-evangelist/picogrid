@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: https://legion-prod.picogrid.com/v3/.well-known/oauth-authorization-server
+docs: https://docs.picogrid.com/reference/start
+schemes:
+- name: OAuth2
+  source: well-known/picogrid-oauth-authorization-server.json
+  provider: Keycloak (realm "legion")
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://auth.legion-prod.picogrid.com/realms/legion/protocol/openid-connect/auth
+    tokenUrl: https://auth.legion-prod.picogrid.com/realms/legion/protocol/openid-connect/token
+  - flow: clientCredentials
+    tokenUrl: https://auth.legion-prod.picogrid.com/realms/legion/protocol/openid-connect/token
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; returns an ID token.
+  flows: [authorizationCode]
+- scope: profile
+  description: Access to the user's basic profile claims.
+  flows: [authorizationCode]
+- scope: email
+  description: Access to the user's email claim.
+  flows: [authorizationCode]
+- scope: offline_access
+  description: Issue a refresh token for long-lived, offline access.
+  flows: [authorizationCode]
+- scope: 'global:::basic'
+  description: Legion global basic access scope.
+  flows: [authorizationCode, clientCredentials]
+- scope: 'global:::profile'
+  description: Legion global profile scope.
+  flows: [authorizationCode, clientCredentials]
+- scope: 'global:::email'
+  description: Legion global email scope.
+  flows: [authorizationCode, clientCredentials]
+notes: >-
+  These are the OAuth scopes advertised by the Keycloak realm's authorization
+  server metadata (scopes_supported). Legion layers a separate fine-grained,
+  resource-level authorization model on top of scopes (organization roles such
+  as org:viewer / org:operator / org:admin / system-admin, plus permission
+  templates and grant/revoke/check operations under /v3/authorization/*), so
+  effective access is governed by permissions in addition to token scope.
