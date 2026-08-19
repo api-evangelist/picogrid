@@ -6,11 +6,9 @@ server:
   name: picogrid-legion
   transport: http
   url: null
-summary: >-
-  Candidate MCP tool surface derived from the Legion Platform API v3 operations.
-  No official Picogrid-hosted MCP server was found; this is a proposed mapping of
-  marquee operations to tools an agent could call (grounded in real HTTP
-  method+path from docs.picogrid.com/reference). operationIds are not asserted
+summary: Candidate MCP tool surface derived from the Legion Platform API v3 operations. No official Picogrid-hosted
+  MCP server was found; this is a proposed mapping of marquee operations to tools an agent could call
+  (grounded in real HTTP method+path from docs.picogrid.com/reference). operationIds are not asserted
   because the combined OpenAPI is not publicly retrievable.
 tools:
 - name: search_entities
@@ -77,7 +75,12 @@ tools:
   description: Check whether a subject has a specific permission on a resource.
   method: POST
   path: /v3/authorization/permissions/check
-notes: >-
-  Safety note for agent use: /v3/tasking dispatches real-world commands to
-  physical entities — treat as a high-consequence (acting) operation requiring
-  human-in-the-loop confirmation and short-lived, least-privilege tokens.
+notes: 'Safety note for agent use: /v3/tasking dispatches real-world commands to physical entities — treat
+  as a high-consequence (acting) operation requiring human-in-the-loop confirmation and short-lived, least-privilege
+  tokens.'
+deployment:
+  mode: none
+  verified: derived
+  tools: 16
+  checked: '2026-08-12'
+  source: catalog MCP census
